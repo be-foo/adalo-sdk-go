@@ -30,11 +30,16 @@ jobs:
         run: go build -v .
 
       - name: Test
-        run: go test -v -cover .
+        run: go test -v -covermode=count -coverprofile=coverage.out .
         env:
           TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
           TEST_APP_ID: ${{ secrets.TEST_APP_ID }}
           TEST_COLLECTION_ID: ${{ secrets.TEST_COLLECTION_ID }}
+
+      - name: Create coverage file
+        run: |
+          go get github.com/mattn/goveralls
+          goveralls -repotoken ${{ secrets.COVERALLS_TOKEN }}
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v1.1.2
