@@ -8,9 +8,9 @@ import (
 
 // person represents a record in the Persons collection in Adalo
 type person struct {
-	ID int `json:"id"`
-	Name string `json:"Name"`
-	Age int `json:"Age"`
+	ID        int    `json:"id"`
+	Name      string `json:"Name"`
+	Age       int    `json:"Age"`
 	CreatedAt string `json:"created_at"`
 	UpdatedAt string `json:"updated_at"`
 }
@@ -18,7 +18,7 @@ type person struct {
 // personInput represents the schema for inputting a person in the Adalo collection
 type personInput struct {
 	Name string `json:"Name"`
-	Age int `json:"Age"`
+	Age  int    `json:"Age"`
 }
 
 // collection is the interface for the collection we will use in this test
@@ -40,8 +40,8 @@ func TestCollection_All(t *testing.T) {
 func TestCollection_Insert(t *testing.T) {
 	var result person
 	err := collection.Insert(&personInput{
-		Name:    "John",
-		Age:	21,
+		Name: "John",
+		Age:  21,
 	}, &result)
 	defer collection.Delete(result.ID)
 
@@ -53,8 +53,8 @@ func TestCollection_Insert(t *testing.T) {
 func TestCollection_Get(t *testing.T) {
 	var createdPerson person
 	if err := collection.Insert(&personInput{
-		Name:    "Jane",
-		Age: 28,
+		Name: "Jane",
+		Age:  28,
 	}, &createdPerson); err != nil {
 		t.Skip()
 	}
@@ -70,7 +70,7 @@ func TestCollection_Get(t *testing.T) {
 func TestCollection_Update(t *testing.T) {
 	var createdPerson person
 	if err := collection.Insert(&personInput{
-		Age: 66,
+		Age:  66,
 		Name: "Chocolate rain",
 	}, &createdPerson); err != nil {
 		t.Skip()
@@ -80,7 +80,7 @@ func TestCollection_Update(t *testing.T) {
 	var updatedPerson person
 	err := collection.Update(createdPerson.ID, &personInput{
 		Name: "Richard Johnson",
-		Age: 89,
+		Age:  89,
 	}, &updatedPerson)
 
 	assert.Nil(t, err)
@@ -92,8 +92,8 @@ func TestCollection_Update(t *testing.T) {
 func TestCollection_Delete(t *testing.T) {
 	var createdPerson person
 	if err := collection.Insert(&personInput{
-		Name:    "Mr. Oldman",
-		Age: 321,
+		Name: "Mr. Oldman",
+		Age:  321,
 	}, &createdPerson); err != nil {
 		t.Skip()
 	}
