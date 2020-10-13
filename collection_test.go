@@ -2,7 +2,6 @@ package adalo
 
 import (
 	"github.com/stretchr/testify/assert"
-	"log"
 	"os"
 	"testing"
 )
@@ -47,7 +46,6 @@ func TestCollection_Insert(t *testing.T) {
 	defer collection.Delete(result.ID)
 
 	assert.Nil(t, err)
-	log.Println(result)
 	assert.Equal(t, "John", result.Name)
 	assert.Equal(t, 21, result.Age)
 }
