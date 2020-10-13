@@ -1,7 +1,6 @@
 package adalo
 
 import (
-	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/assert"
 	"log"
 	"os"
@@ -27,13 +26,9 @@ type personInput struct {
 var collection *Collection
 
 func init() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
+	if os.Getenv("TEST_COLLECTION_ID") == "" {
+		panic("environment variable TEST_COLLECTION_ID is not set")
 	}
-
-	ApiKey = os.Getenv("TEST_API_KEY")
-	AppID = os.Getenv("TEST_APP_ID")
 	collection = NewCollection(os.Getenv("TEST_COLLECTION_ID"))
 }
 
