@@ -71,4 +71,3 @@ func (c *PersonCollection) Delete(id int) error {
 func (c *PersonCollection) Update(id int, input *PersonInput, result *Person) error {
 	return c.collection.Update(id, input, result)
 }
-
