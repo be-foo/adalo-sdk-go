@@ -25,6 +25,7 @@ jobs:
               curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
               dep ensure
           fi
+          go get github.com/mattn/goveralls
 
       - name: Build
         run: go build -v .
@@ -36,12 +37,7 @@ jobs:
           TEST_APP_ID: ${{ secrets.TEST_APP_ID }}
           TEST_COLLECTION_ID: ${{ secrets.TEST_COLLECTION_ID }}
 
-      - name: Create coverage file
-        run: |
-          go get github.com/mattn/goveralls
-          goveralls -repotoken ${{ secrets.COVERALLS_TOKEN }}
-
-      - name: Coveralls GitHub Action
-        uses: coverallsapp/github-action@v1.1.2
-        with:
-          github-token: ${{ secrets.github_token }}
+      - name: Send coverage
+        env:
+          COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: goveralls -coverprofile=coverage.out -service=github
