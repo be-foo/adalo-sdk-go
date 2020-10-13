@@ -119,4 +119,4 @@ For type safety and a over-all better developer experience, we suggest you imple
 of the `Collection` type, where you declare types according to your specific collections and then
 create wrapper functions for the functions of `Collection`, using your type.
 
-You can see a full example of this can look like in [example/person.go](./example/person.go).
+You can see a full example of how this can look like in [example/person.go](./example/person.go).
