@@ -1,4 +1,4 @@
-name: Test
+name: test
 
 on: [push, pull_request]
 
@@ -35,3 +35,6 @@ jobs:
           TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
           TEST_APP_ID: ${{ secrets.TEST_APP_ID }}
           TEST_COLLECTION_ID: ${{ secrets.TEST_COLLECTION_ID }}
+
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v1.1.2
