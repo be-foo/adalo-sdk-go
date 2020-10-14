@@ -17,7 +17,7 @@ var (
 	ErrorResourceNotFound = errors.New("resource not found")
 )
 
-// apiErrorResponse is a representation of the json returned by the Adalo api
+// apiErrorResponse is a representation of the response returned by the Adalo API
 // in order to provide explicit error messages.
 type apiErrorResponse struct {
 	Error string `json:"error"`

@@ -14,6 +14,7 @@ type PersonCollection struct {
 var Persons *PersonCollection
 
 // Person represents a record in the Persons collection in Adalo
+// Fields ID, CreatedAt and UpdatedAt are set by Adalo to any collection record and thus should always be defined!
 type Person struct {
 	// ID in Adalo collection
 	ID int `json:"id"`

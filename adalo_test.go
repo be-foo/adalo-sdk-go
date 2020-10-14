@@ -4,13 +4,22 @@ import (
 	"os"
 )
 
+// testConfig defines a config argument for the setup function
 type testConfig int
 
+// list of accepted values for testConfig
 const (
+	// unauthorized will set an invalid ApiKey
 	unauthorized = 0
-	authorized   = 1
-	invalidApp   = 2
-	validApp     = 3
+
+	// authorized will set a valid ApiKey (set by default)
+	authorized = 1
+
+	// invalidApp will set an invalid AppID
+	invalidApp = 2
+
+	// validApp will set a valid AppID (set by default)
+	validApp = 3
 )
 
 // validApiKey is a copy of the valid api key used in the tests.
@@ -33,6 +42,8 @@ func init() {
 	validAppID = os.Getenv("TEST_APP_ID")
 }
 
+// setup is meant to be called at the beginning of each test to setup some conditions.
+// By default, so with no args passed, the test is setup to be with valid ApiKey and AppID.
 func setup(args ...testConfig) {
 	// when no args are passed, setup with valid credentials
 	ApiKey = validApiKey
