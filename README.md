@@ -7,7 +7,7 @@ provided by [The Adalo API](https://help.adalo.com/integrations/the-adalo-api).
 [![Build Status](https://github.com/be-foo/adalo-sdk-go/workflows/test/badge.svg)](https://github.com/be-foo/adalo-sdk-go/actions)
 [![Coverage Status](https://coveralls.io/repos/github/be-foo/adalo-sdk-go/badge.svg?branch=develop)](https://coveralls.io/github/be-foo/adalo-sdk-go?branch=develop)
 [![Go Report Card](https://goreportcard.com/badge/github.com/be-foo/adalo-sdk-go)](https://goreportcard.com/report/github.com/be-foo/adalo-sdk-go)
-
+![License](https://img.shields.io/github/license/be-foo/adalo-sdk-go)
 ## Installation
 
 Make sure your project is using Go Modules (it will have a `go.mod` file in its
