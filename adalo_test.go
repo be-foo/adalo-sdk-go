@@ -10,16 +10,16 @@ type testConfig int
 // list of accepted values for testConfig
 const (
 	// unauthorized will set an invalid ApiKey
-	unauthorized = 0
+	unauthorized testConfig = iota
 
 	// authorized will set a valid ApiKey (set by default)
-	authorized = 1
+	authorized
 
 	// invalidApp will set an invalid AppID
-	invalidApp = 2
+	invalidApp
 
 	// validApp will set a valid AppID (set by default)
-	validApp = 3
+	validApp
 )
 
 // validApiKey is a copy of the valid api key used in the tests.
